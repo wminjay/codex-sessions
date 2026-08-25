@@ -54,7 +54,7 @@ See the [official Codex CLI command reference](https://learn.chatgpt.com/docs/de
 
 ### Go
 
-Requires Go 1.24.2 or newer:
+Requires Go 1.27.0 or newer:
 
 ```bash
 go install github.com/wminjay/codex-sessions/cmd/codex-sessions@latest

@@ -23,7 +23,7 @@
 
 ## 安装
 
-使用 Go 1.24.2 或更新版本：
+使用 Go 1.27.0 或更新版本：
 
 ```bash
 go install github.com/wminjay/codex-sessions/cmd/codex-sessions@latest

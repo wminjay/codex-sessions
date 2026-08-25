@@ -4,7 +4,7 @@ Issues and focused pull requests are welcome.
 
 ## Development setup
 
-1. Install Go 1.24.2 or newer.
+1. Install Go 1.27.0 or newer.
 2. Clone the repository.
 3. Run `go test ./...` and `go vet ./...`.
 4. Build with `go build ./cmd/codex-sessions`.
