@@ -68,6 +68,29 @@ func TestLoadSQLiteMergesProvidersAndHidesEmptySessions(t *testing.T) {
 	}
 }
 
+func TestSQLiteStoreIsOpenedReadOnly(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "state_1.sqlite")
+	database, err := sql.Open("sqlite", path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := database.Exec("CREATE TABLE threads (id TEXT)"); err != nil {
+		t.Fatal(err)
+	}
+	if err := database.Close(); err != nil {
+		t.Fatal(err)
+	}
+
+	readOnly, err := sql.Open("sqlite", readOnlySQLiteDSN(path))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer readOnly.Close()
+	if _, err := readOnly.Exec("CREATE TABLE forbidden (id TEXT)"); err == nil {
+		t.Fatal("expected write through read-only SQLite DSN to fail")
+	}
+}
+
 func TestRolloutFallbackUsesFirstRealUserMessage(t *testing.T) {
 	root := t.TempDir()
 	directory := filepath.Join(root, "sessions", "2026", "08", "25")

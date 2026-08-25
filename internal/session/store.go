@@ -110,8 +110,7 @@ func loadSQLite(store Store, options LoadOptions) ([]Session, error) {
 	if err != nil || databasePath == "" {
 		return nil, err
 	}
-	dsnURL := &url.URL{Scheme: "file", Path: filepath.ToSlash(databasePath)}
-	database, err := sql.Open("sqlite", dsnURL.String()+"?mode=ro")
+	database, err := sql.Open("sqlite", readOnlySQLiteDSN(databasePath))
 	if err != nil {
 		return nil, fmt.Errorf("open %s: %w", databasePath, err)
 	}
@@ -188,6 +187,21 @@ func loadSQLite(store Store, options LoadOptions) ([]Session, error) {
 		return nil, fmt.Errorf("read %s: %w", databasePath, err)
 	}
 	return items, nil
+}
+
+func readOnlySQLiteDSN(databasePath string) string {
+	path := filepath.ToSlash(databasePath)
+	dsnURL := &url.URL{Scheme: "file", Path: path}
+
+	// A Windows drive path needs a leading slash so net/url emits
+	// file:///C:/... instead of treating the drive letter as a URI host.
+	if filepath.VolumeName(databasePath) != "" && !strings.HasPrefix(path, "/") {
+		dsnURL.Path = "/" + path
+	}
+	query := dsnURL.Query()
+	query.Set("mode", "ro")
+	dsnURL.RawQuery = query.Encode()
+	return dsnURL.String()
 }
 
 func threadColumns(database *sql.DB) (map[string]bool, error) {
