@@ -9,7 +9,7 @@ All notable changes to this project are documented here.
 - Added directory-first browsing across all local interactive Codex sessions.
 - Added search across paths, titles, providers, models, and UUIDs.
 - Added resume and fork actions with original, account, and custom providers.
-- Added exact `--yolo` passthrough with a visible warning.
+- Added a simple `-yolo` switch with a visible warning.
 - Added read-only SQLite discovery and JSONL rollout fallback.
 - Added cross-platform pure Go builds for macOS, Linux, and Windows.
 

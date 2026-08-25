@@ -58,7 +58,7 @@ func Build(request Request, options Options) (Command, error) {
 		args = append(args, "-c", "model_provider="+strconv.Quote(provider))
 	}
 	if options.Yolo {
-		// Keep the Codex compatibility alias exactly as requested.
+		// The public switch is -yolo; Codex currently recognizes this alias.
 		args = append(args, "--yolo")
 	}
 	environment := replaceEnvironment(os.Environ(), map[string]string{

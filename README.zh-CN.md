@@ -15,7 +15,7 @@
 - 搜索项目路径、rename 名称、第一句话、provider、模型和 UUID
 - 使用原 provider、账号 provider 或 custom provider 恢复
 - 支持 fork，不修改原对话
-- 显式透传 `--yolo`，界面会显示醒目警告
+- 简单的 `-yolo` 开关，界面会显示醒目警告
 - 只读访问 SQLite，失败时回退扫描 JSONL rollout
 - 自动隐藏没有任何用户消息的空 session
 - 纯 Go 单文件二进制，不依赖 Python、CGO、`sqlite3` 或 `fzf`
@@ -88,6 +88,8 @@ codex-sessions --custom-profile custom
 ```
 
 工具不会读取或保存 API Key，也不会修改 Codex 的 SQLite 或 rollout 文件。
+
+`-yolo` 默认关闭。Codex Sessions 只会把它转换成当前 Codex CLI 能识别的同义参数，不会展开成其他复杂的长参数。
 
 ## 开发
 

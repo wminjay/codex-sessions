@@ -151,7 +151,7 @@ func parseOptions(arguments []string, stderr io.Writer) (options, error) {
 	flags.StringVar(&result.customProfile, "custom-profile", "", "Codex profile layered for custom launches")
 	flags.StringVar(&result.codexBin, "codex-bin", "codex", "Codex executable name or path")
 	flags.BoolVar(&result.dryRun, "dry-run", false, "print the launch command without executing it")
-	flags.BoolVar(&result.yolo, "yolo", false, "pass --yolo through to Codex")
+	flags.BoolVar(&result.yolo, "yolo", false, "start Codex in YOLO mode")
 	flags.BoolVar(&result.inline, "inline", false, "run without the terminal alternate screen")
 	flags.BoolVar(&result.showVersion, "version", false, "print build version")
 	flags.Usage = func() {

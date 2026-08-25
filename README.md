@@ -44,7 +44,7 @@ See the [official Codex CLI command reference](https://learn.chatgpt.com/docs/de
 - Search across project paths, renamed titles, first prompts, providers, models, and UUIDs
 - Resume with the original provider, account login, or a custom API provider
 - Fork without changing the original conversation
-- Explicit `--yolo` passthrough with a prominent UI warning
+- Simple `-yolo` switch with a prominent UI warning
 - Read-only SQLite access with JSONL rollout fallback
 - Empty metadata-only sessions are hidden
 - Pure Go, no Python, CGO, `sqlite3`, or `fzf` dependency
@@ -144,7 +144,7 @@ Title selection follows this order:
 
 Records with no readable conversation content are hidden. The tool never updates SQLite or rollout files.
 
-`-yolo` is disabled by default. The Go CLI accepts either `-yolo` or `--yolo`; the compatible `--yolo` alias is then passed to Codex. This skips its normal safety workflow, so only use it in an environment where that behavior is intentional.
+`-yolo` is disabled by default. Internally, Codex Sessions translates it to the alias understood by the installed Codex CLI; it never expands it into a different long-form option. YOLO skips Codex's normal safety workflow, so only use it in an environment where that behavior is intentional.
 
 ## Development
 
