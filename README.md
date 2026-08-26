@@ -6,7 +6,7 @@
 
 A fast, polished terminal session explorer for Codex CLI.
 
-Codex Sessions brings local sessions created with account login, custom API providers, VS Code, and different project directories into one searchable view. Pick a session, choose a provider, and continue through Codex's own `resume` or `fork` command.
+After switching between account login and a custom API provider, sessions created with the previous provider may no longer appear in Codex's `/resume` list. Codex Sessions solves that problem by bringing local interactive sessions across providers into one searchable view. Pick a session, choose a provider, and continue through Codex's own `resume` or `fork` command.
 
 > Unofficial community tool. It is not affiliated with or endorsed by OpenAI.
 

@@ -2,7 +2,7 @@
 
 一个快速、美观的 Codex CLI 本地 session 浏览器。
 
-它把账号登录、custom API provider、VS Code 和不同项目目录创建的 sessions 汇总到同一个可搜索界面中。选择 session 后，仍然交给 Codex 官方的 `resume` 或 `fork` 命令继续。
+在账号登录和 custom API provider 之间切换后，之前 provider 创建的 sessions 可能不再出现在 Codex 的 `/resume` 列表中。Codex Sessions 就是为了解决这个问题：它把不同 provider 的本地交互 sessions 汇总到同一个可搜索界面中，再通过 Codex 官方的 `resume` 或 `fork` 命令继续。
 
 > 非官方社区工具，与 OpenAI 无隶属或背书关系。
 
