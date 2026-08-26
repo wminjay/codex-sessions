@@ -67,7 +67,7 @@ codex-sessions -yolo
 
 # 只查看，不启动
 codex-sessions --list --limit 20
-codex-sessions --json --query codex-sessions
+codex-sessions --json --query demo-api
 
 # 用 custom provider 恢复已知 session
 codex-sessions --session 01a02e1c --provider custom
